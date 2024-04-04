@@ -16,50 +16,72 @@
         </div>
         <div class="credit">Photo by Tonny Huang on <a href="https://unsplash.com/photos/the-sun-is-setting-in-a-city-with-tall-buildings-NkIGNyej0Ww">Unsplash</a></div>
     </div>
-    <div class="formsection">
+    <div class="rightsection">
         <div class="toptext">
             <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
             <p>You <em>know</em> you want to.</p>
         </div>
-        <form action="" method="post">
-            <fieldset>
-                <legend>Let's Do This</legend>
+        <div class="formsection">
+            <form action="" method="post" id="myform">
+                <p id="tag">Let's Do This!</p>
                 <div class="allinputs">
                     <div class="inputrow">
                         <div class="inputset">
-                            <label for="first_name">First Name</label>
-                            <input type="text" id="first_name">
+                            <label for="first_name">FIRST NAME</label>
+                            <input type="text" id="first_name" required minlength="1">
                         </div>
                         <div class="inputset">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" id="last_name">
+                            <label for="last_name">LAST NAME</label>
+                            <input type="text" id="last_name" required minlength="1">
                         </div>
                     </div>
                     <div class="inputrow">
                         <div class="inputset">
-                            <label for="email">Email</label>
-                            <input type="email" id="email">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" required minlength="4">
                         </div>
                         <div class="inputset">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone">
+                            <label for="phone">PHONE NUMBER</label>
+                            <input type="tel" id="phone" required minlength="10" pattern="^\d{10}$">
                         </div>
                     </div>
                     <div class="inputrow">
                         <div class="inputset">
-                            <label for="pass">Password</label>
-                            <input type="password" id="pass">
+                            <label for="pass">PASSWORD</label>
+                            <input type="password" id="pass" required minlength="5">
                         </div>
                         <div class="inputset">
-                            <label for="confirmpass">Confirm Password</label>
-                            <input type="password" id="confirmpass">
+                            <label for="confirmpass">CONFIRM PASSWORD</label>
+                            <input type="password" id="confirmpass" required minlength="5">
                         </div>
+                    </div>
+                    <div id="finalmessage">
                     </div>
                 </div>
-            </fieldset>
-            <button class="createbutton" type="submit">Create Account</button>
-        </form>
-        <p>Already have an account? <a href="">Log In</a></p>
-    </div>    
+            </form>
+        </div>
+        <div class="bottomsection">
+            <button class="createbutton" type="submit" form="myform">Create Account</button>
+            <p>Already have an account? <a id="poof" href="">Log In</a></p>    
+        </div>
+    </div>
+    <script defer>
+        // Get the form element
+        const form = document.getElementById('myform');
+        // Add an event listener for the 'submit' event
+        form.addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+            console.log(event)
+            let pass1 = document.getElementById('pass');
+            let pass2 = document.getElementById('confirmpass');
+            let finalmessage = document.getElementById('finalmessage');
+            if (pass1.value !== pass2.value) {
+                finalmessage.innerText = 'Passwords do not match!'
+            } else  {
+                finalmessage.innerText = ''
+            }
+        });
+    </script>
 </body>
 </html>

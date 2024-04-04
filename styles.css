@@ -49,17 +49,20 @@ body {
     height: 100vh;
 }
 
-.formsection {
-    background-color: rgba(252, 252, 252, 0.963);
-    width: 65vw;
+.rightsection {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    width: 65vw;
+    background-color: rgba(238, 238, 238, 0.963);
+}
+
+.bottomsection, .toptext{
     padding-left: 40px;
 }
 
-.toptext {
+.toptext, #tag {
     font-family: sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -92,5 +95,38 @@ body {
 }
 
 form {
-    background-color: rgba(249, 249, 249, 0.931);
+    background-color: rgba(252, 252, 252, 0.902);
+    padding: 20px 20px 20px 40px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+#poof {
+    text-decoration: none;
+    color: forestgreen;
+    font-weight: 600;
+}
+
+label {
+    color: rgb(75, 73, 73);
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+    border: #E5E7EB;
+    background-color: blanchedalmond;
+}
+
+input:focus {
+    border: #0e53de;
+    box-shadow: 3px 3px 3px rgb(191, 191, 191);
+}
+
+#pass:invalid, #confirmpass:invalid {
+    border: 1px dotted red;
+}
+
+#finalmessage {
+    color: red;
+    font-size: 8px;
 }
